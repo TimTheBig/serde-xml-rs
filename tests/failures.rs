@@ -4,7 +4,7 @@ use common::init_logger;
 #[cfg(feature = "log")]
 use log::info;
 use serde::Deserialize;
-use serde_xml_rs::from_str;
+use serde_xml_rust::from_str;
 
 #[derive(Debug, Deserialize, PartialEq)]
 struct Item {

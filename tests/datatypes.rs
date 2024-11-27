@@ -10,7 +10,7 @@ fn logger() {
 mod de {
     use super::*;
     use serde::Deserialize;
-    use serde_xml_rs::from_str;
+    use serde_xml_rust::from_str;
 
     #[rstest]
     #[case::string("<bla>This is a String</bla>", "This is a String".to_string())]
@@ -82,7 +82,7 @@ mod de {
 mod ser {
     use super::*;
     use serde::{self, Serialize};
-    use serde_xml_rs::to_string;
+    use serde_xml_rust::to_string;
 
     #[derive(Serialize, Debug)]
     #[serde(rename = "bla")]

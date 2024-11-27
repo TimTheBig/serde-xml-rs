@@ -2,7 +2,7 @@ mod common;
 
 use common::init_logger;
 use serde::Deserialize;
-use serde_xml_rs::{from_str, Deserializer};
+use serde_xml_rust::{from_str, Deserializer};
 
 #[derive(Debug, Deserialize, PartialEq)]
 struct Item {

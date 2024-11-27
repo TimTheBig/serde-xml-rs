@@ -2,7 +2,7 @@ mod common;
 
 use common::init_logger;
 use serde::{de, ser, Deserialize, Serialize};
-use serde_xml_rs::{from_str, Error};
+use serde_xml_rust::{from_str, Error};
 use std::fmt::Debug;
 
 #[derive(PartialEq, Debug, Serialize, Deserialize)]

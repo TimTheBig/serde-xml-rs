@@ -59,7 +59,7 @@ pub type Result<T> = std::result::Result<T, Error>;
 
 #[macro_export]
 macro_rules! expect {
-    ($actual: expr, $($expected: pat)|+ => $if_ok: expr) => {
+    ($actual: expr, $($expected: pat)+ => $if_ok: expr) => {
         match $actual {
             $($expected)|+ => $if_ok,
             actual => Err($crate::Error::UnexpectedToken {
@@ -73,7 +73,7 @@ macro_rules! expect {
 #[cfg(debug_assertions)]
 #[macro_export]
 macro_rules! debug_expect {
-    ($actual: expr, $($expected: pat)|+ => $if_ok: expr) => {
+    ($actual: expr, $($expected: pat)+ => $if_ok: expr) => {
         match $actual {
             $($expected)|+ => $if_ok,
             actual => panic!(
@@ -88,7 +88,7 @@ macro_rules! debug_expect {
 #[cfg(not(debug_assertions))]
 #[macro_export]
 macro_rules! debug_expect {
-    ($actual: expr, $($expected: pat)|+ => $if_ok: expr) => {
+    ($actual: expr, $($expected: pat)+ => $if_ok: expr) => {
         match $actual {
             $($expected)|+ => $if_ok,
             _ => unreachable!()

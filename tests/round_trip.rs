@@ -1,5 +1,5 @@
 use serde::{Deserialize, Serialize};
-use serde_xml_rs::{self, from_str, to_string, EventReader, ParserConfig};
+use serde_xml_rust::{self, from_str, to_string, EventReader, ParserConfig};
 
 #[derive(Debug, Serialize, Deserialize, PartialEq)]
 struct Item {
@@ -79,7 +79,7 @@ fn whitespace_preserving_config() {
         .trim_whitespace(false)
         .whitespace_to_characters(false);
     let mut deserializer =
-        serde_xml_rs::Deserializer::new(EventReader::new_with_config(src.as_bytes(), config));
+        serde_xml_rust::Deserializer::new(EventReader::new_with_config(src.as_bytes(), config));
 
     let item = Item::deserialize(&mut deserializer).unwrap();
     assert_eq!(item, item_should_be);
